@@ -1,0 +1,29 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "Home Entry Application",
+  "main": "index.js",
+  "author": "Jerry Chang",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open chrome --mode development",
+    "start:live": "webpack-dev-server --open --mode development --liveReload"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "@shared/common-webpack": "^1.0.0",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^5.0.0-beta.18",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
