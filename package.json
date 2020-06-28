@@ -10,9 +10,7 @@
     "start": "lerna run start --parallel"
   },
   "dependencies": {
-    "concurrently": "^5.2.0",
     "html-webpack-plugin": "^4.3.0",
-    "webpack": "^5.0.0-beta.18",
-    "wsrun": "^5.2.1"
+    "webpack": "^5.0.0-beta.18"
   }
 }
