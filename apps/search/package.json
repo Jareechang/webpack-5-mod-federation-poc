@@ -7,18 +7,22 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open chrome --mode development",
-    "start:live": "webpack-dev-server --open --mode development --liveReload"
+    "serve": "serve dist -p 4001",
+    "start": "webpack --watch"
   },
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
+    "@material-ui/core": "^4.10.2",
     "@shared/common-webpack": "^1.0.0",
     "babel-loader": "^8.1.0",
     "html-webpack-plugin": "^4.3.0",

@@ -19,9 +19,14 @@ module.exports = CommonWebpack.overrideBase({
                 search: 'search'
             },
             exposes: {
-                './Search': './src/Search'
+                './Content': './src/Content'
             },
-            shared: require('./package.json').dependencies,
+            shared: [
+                "react",
+                "react-dom",
+                "material-ui/core",
+                "material-ui/icons"
+            ] 
         }),
         new HtmlWebPackPlugin({
             template: './src/index.html',

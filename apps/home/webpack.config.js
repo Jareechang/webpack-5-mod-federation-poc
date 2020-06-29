@@ -3,6 +3,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const CommonWebpack = require('@shared/common-webpack');
 
 module.exports = CommonWebpack.overrideBase({
+    mode: 'development',
     output: {
         publicPath: 'http://localhost:4000/'
     },
@@ -20,10 +21,16 @@ module.exports = CommonWebpack.overrideBase({
                 search: 'search'
             },
             exposes: {
-                './Home': './src/Home',
-                './AppContainer': './src/AppContainer'
+                './Content': './src/Content',
+                './AppContainer': './src/AppContainer',
+                './Nav': './src/Nav'
             },
-            shared: require('./package.json').dependencies,
+            shared: [
+                "react",
+                "react-dom",
+                "material-ui/core",
+                "material-ui/icons"
+            ]
         }),
         new HtmlWebPackPlugin({
             template: './src/index.html',

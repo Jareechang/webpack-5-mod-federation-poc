@@ -2,15 +2,21 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "webpack": "5.0.0-beta.18"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "clean": "rm -rf node_modules packages/**/node_modules",
+    "clean": "rm -rf node_modules apps/**/node_modules",
     "build": "lerna run build --parallel",
-    "start": "lerna run start --parallel"
+    "start": "concurrently \"wsrun --parallel start\" \"wsrun --parallel serve\""
   },
   "dependencies": {
+    "concurrently": "^5.2.0",
     "html-webpack-plugin": "^4.3.0",
-    "webpack": "^5.0.0-beta.18"
+    "wsrun": "^5.2.1"
   }
 }
