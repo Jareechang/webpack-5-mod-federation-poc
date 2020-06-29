@@ -32,3 +32,9 @@ yarn start
 - [Material UI](https://github.com/mui-org/material-ui) Version 5.0.0-alpha.1
 - [wsrun](https://github.com/hfour/wsrun) 
 - [serve](https://github.com/vercel/serve) 
+
+## Resources
+
+- [Webpack 5 Module Federation: A game-changer in JavaScript architecture](https://indepth.dev/webpack-5-module-federation-a-game-changer-in-javascript-architecture/)
+- [Webpack 5 Documentation](https://webpack.js.org/concepts/module-federation/)
+- [Webpack 5 and Module Federation - A Microfrontend Revolution](https://dev.to/marais/webpack-5-and-module-federation-4j1i)
