@@ -20,8 +20,6 @@ const Nav = (props: Props) => {
     const location = useLocation();
     const title = mapPathToTitle(location.pathname);
 
-    console.log('using title: ', title);
-
     const toggleMenu = React.useCallback(() => {
         if (typeof props.toggleMenu === 'function') {
             props.toggleMenu();
