@@ -25,7 +25,7 @@ yarn start
 
 ## Technologies
 
-- [Webpack](https://github.com/webpack/webpack)https://github.com/webpack/webpack, Version 5.0.0-beta.18
+- [Webpack](https://github.com/webpack/webpack) Version 5.0.0-beta.18
 - [React](https://github.com/facebook/react) Version ^16.13.1
 - [React DOM](https://github.com/facebook/react) Version ^16.13.1
 - [React Route](https://github.com/ReactTraining/react-router)
