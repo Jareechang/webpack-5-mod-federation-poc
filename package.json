@@ -15,8 +15,5 @@
     "start": "concurrently \"wsrun --parallel start\" \"wsrun --parallel serve\""
   },
   "dependencies": {
-    "concurrently": "^5.2.0",
-    "html-webpack-plugin": "^4.3.0",
-    "wsrun": "^5.2.1"
   }
 }

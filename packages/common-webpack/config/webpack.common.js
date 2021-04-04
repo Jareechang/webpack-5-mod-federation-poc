@@ -1,7 +1,6 @@
-const BaseWebpackConfig = {
-    mode: 'development',
+const common = {
     output: {
-        publicPath: 'http://localhost:8080/'
+        publicPath: 'http://localhost:3000/'
     },
     resolve: {
         extensions: [
@@ -13,7 +12,7 @@ const BaseWebpackConfig = {
         ]
     },
     devServer: {
-        port: 8080,
+        port: 3000,
         historyApiFallback: true
     },
     module: {
@@ -40,27 +39,5 @@ const BaseWebpackConfig = {
     plugins: []
 };
 
+module.exports = common;
 
-/**
- *
- * Provide an utility function to re-use common app build configure while leaving options to override
- * micro front-end configurations
- *
- *
- * */
-function overrideBase(options) {
-    const commonWebpackConfig = {...BaseWebpackConfig};
-    /**
-     *
-     *  Allow override module federation module options 
-     *
-     * */
-    commonWebpackConfig.output.publicPath = options.output.publicPath;
-    commonWebpackConfig.devServer.port = options.devServer.port;
-    commonWebpackConfig.plugins = options.plugins;
-    return commonWebpackConfig;
-}
-
-module.exports = {
-    overrideBase 
-};

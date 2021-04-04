@@ -1,1 +1,1 @@
-import('./Search');
+import('./bootstrap');

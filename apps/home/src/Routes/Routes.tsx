@@ -2,12 +2,15 @@ import * as React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import {
     Link,
     Switch,
     Route
 } from "react-router-dom";
 
+import { Loading } from '../components';
 
 function mapPathToTitle(path : string) : string {
     const mapping : {[key: string]: string} = {
@@ -44,16 +47,22 @@ interface RouteConfiguration {
  * **/
 const AppRouteConfigurations : RouteConfiguration[] = [
     {
-        name: 'home',
-        text: 'Home',
-        path: '/',
-        component: React.lazy(() => import('home/Content'))
-    },
-    {
         name: 'search',
         text: 'Search',
         path: '/search',
-        component: React.lazy(() => import('search/Content'))
+        component: React.lazy(() => import('../pages/SearchResults'))
+    },
+    {
+        name: 'account',
+        text: 'Account',
+        path: '/account',
+        component: React.lazy(() => import('../pages/Account'))
+    },
+    {
+        name: 'home',
+        text: 'Home',
+        path: '/',
+        component: React.lazy(() => import('../pages/Home'))
     }
 ];
 
@@ -65,17 +74,17 @@ const AppRouteConfigurations : RouteConfiguration[] = [
  *
  * **/
 const Index = () => (
+  <React.Suspense fallback={<Loading />}>
     <Switch>
-        {AppRouteConfigurations.map((config) => {
-            return (
-                <Route path={config.path} exact>
-                    <React.Suspense fallback="Loading...">
-                        <config.component />
-                    </React.Suspense>
-                </Route>
-            );
-        })}
+      {AppRouteConfigurations.map((config) => {
+        return (
+          <Route key={config.text} path={config.path}>
+            <config.component />
+          </Route>
+        );
+      })}
     </Switch>
+  </React.Suspense>
 );
 
 /*

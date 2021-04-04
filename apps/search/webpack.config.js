@@ -12,8 +12,7 @@ module.exports = CommonWebpack.overrideBase({
     plugins: [
         new ModuleFederationPlugin({
             name: 'search',
-            library: { type: 'var', name: 'search' },
-            filename: 'remote.js',
+            filename: 'remoteEntry.js',
             remotes: {
                 home: 'home',
                 search: 'search'
