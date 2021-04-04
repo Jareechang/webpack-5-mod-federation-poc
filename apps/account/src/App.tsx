@@ -17,8 +17,6 @@ import {
 } from 'react-router-dom';
 
 import { createMemoryHistory } from 'history';
-import { useLoginStatus } from './hooks';
-import { LoginContext } from './context';
 import { AccountContainer } from './components';
 
 const ProfilePage = React.lazy(() => import('./pages/Profile'));
