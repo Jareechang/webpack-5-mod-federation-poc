@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Search from './Search';
+import Nav from './Nav';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 import { AccountContainer } from 'account/shared';
+
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'search',
+  productionPrefix: 'common-nav',
 });
 
 function mount(element) {
@@ -12,7 +13,7 @@ function mount(element) {
     ReactDOM.render(
       <StylesProvider generateClassName={generateClassName}>
         <AccountContainer>
-          <Search />
+          <Nav />
         </AccountContainer>
       </StylesProvider>,
       element
@@ -21,7 +22,7 @@ function mount(element) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  mount(document.querySelector('#_entry-search-bar'));
+  mount(document.querySelector('#_entry-common'));
 }
 
 export {mount};

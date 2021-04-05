@@ -8,38 +8,27 @@ import {
 
 import { Container } from 'app/SharedGlobals';
 
+import { items } from './data';
+
 interface SearchResultsProps {}
 
 const SearchResults: React.FC<SearchResultsProps> = () => {
-  const items = [
-    {
-      key: 'cat1',
-      src: "https://cdn2.thecatapi.com/images/8KNzClLX4.jpg"
-    },
-    {
-      key: 'cat2',
-      src: "https://cdn2.thecatapi.com/images/8KNzClLX4.jpg"
-    },
-    {
-      key: 'cat3',
-      src: "https://cdn2.thecatapi.com/images/8KNzClLX4.jpg"
-    },
-    {
-      key: 'cat4',
-      src: "https://cdn2.thecatapi.com/images/8KNzClLX4.jpg"
-    }
-  ];
   return (
     <>
       <Container>
+        <Box my={2}>
+          <Typography variant="h6">
+            Search
+          </Typography>
+        </Box>
         <Grid container spacing={4}>
           {
             items.map((item) => {
               return (
-                <Grid key={item.key} item md={3}>
+                <Grid key={item.key} item md={4}>
                   <img
                     src={item.src}
-                    width="100%"
+                    width="250px"
                   />
                 </Grid>
               )

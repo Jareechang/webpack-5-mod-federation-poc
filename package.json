@@ -3,7 +3,8 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.22.1",
-    "webpack": "5.0.0-beta.18"
+    "webpack": "5.0.0-beta.18",
+    "wsrun": "^5.2.4"
   },
   "workspaces": [
     "apps/*",
@@ -12,8 +13,7 @@
   "scripts": {
     "clean": "rm -rf node_modules apps/**/node_modules",
     "build": "lerna run build --parallel",
-    "start": "concurrently \"wsrun --parallel start\" \"wsrun --parallel serve\""
+    "start": "lerna run start --parallel"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

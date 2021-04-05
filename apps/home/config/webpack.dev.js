@@ -4,7 +4,6 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-
 const packageJson = require('../package.json');
 
 const PORT = 4000;
@@ -28,7 +27,7 @@ module.exports = merge(common, {
       },
       remotes: {
         app: 'app@http://localhost:4000/remoteEntry.js',
-        search: 'search@http://localhost:4001/remoteEntry.js',
+        common: 'common@http://localhost:4001/remoteEntry.js',
         searchResults: 'searchResults@http://localhost:4002/remoteEntry.js',
         account: 'account@http://localhost:4003/remoteEntry.js'
       },

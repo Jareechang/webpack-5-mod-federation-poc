@@ -19,14 +19,14 @@ module.exports = merge(common, {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'search',
+      name: 'common',
       filename: 'remoteEntry.js',
       remotes: {
         app: 'app@http://localhost:4000/remoteEntry.js',
         account: 'account@http://localhost:4003/remoteEntry.js',
       },
       exposes: {
-        './SearchEntry': './src/bootstrap'
+        './Nav': './src/bootstrap'
       },
       shared: packageJson.dependencies
     }),

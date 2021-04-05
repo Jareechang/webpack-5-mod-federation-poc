@@ -18,7 +18,7 @@ const Home : React.FC<HomeProps> = (
   return (
     <Container>
       <Box my={4}>
-        <Typography variant="h4">
+        <Typography variant="h6">
           Cats of the day
         </Typography>
       </Box>

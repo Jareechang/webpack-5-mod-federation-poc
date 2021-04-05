@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {mount} from 'search/SearchEntry';
+import {mount} from 'common/Nav';
 
-const Search = () => {
+const Nav = () => {
   const ref = React.useRef(null);
   React.useEffect(() => {
     mount(ref.current);
@@ -10,4 +10,4 @@ const Search = () => {
   return <div ref={ref} />;
 }
 
-export default Search;
+export default Nav;

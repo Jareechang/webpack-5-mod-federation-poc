@@ -7,24 +7,23 @@ import {
   getHistory
 } from 'app/SharedGlobals';
 
-import Search from './components/Search';
-
+import Nav from './components/Nav';
 import * as Routes from './Routes';
 
-interface Props {
+interface AppProps {
     children: React.ReactNode;
 }
 
 const history = getHistory();
 
-const App = (props: Props) => {
+const App : React.FC<AppProps> = (
+  props: AppProps
+) => {
   const { children } = props;
   return (
     <Router history={history}>
       <div id="AppContainer">
-        {/* Nav */}
-        <Search />
-        {/* Page Body */}
+        <Nav />
         <Routes.Index />
       </div>
     </Router>
