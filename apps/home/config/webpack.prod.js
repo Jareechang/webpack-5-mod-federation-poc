@@ -47,4 +47,4 @@ module.exports = merge(common, {
       template: path.resolve(__dirname, '../public/index.html')
     })
   ]
-})
+});
