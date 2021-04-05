@@ -6,7 +6,7 @@ const path = require('path');
 
 const packageJson = require('../package.json');
 
-const PORT = 4000;
+const PORT = 4002;
 
 module.exports = merge(common, {
   mode: 'development',
@@ -19,28 +19,15 @@ module.exports = merge(common, {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app',
+      name: 'search',
       filename: 'remoteEntry.js',
-      exposes: {
-        // Global shared utility
-        './SharedGlobals' : './src/global'
-      },
       remotes: {
-        app: 'app@http://localhost:4000/remoteEntry.js',
-        common: 'common@http://localhost:4001/remoteEntry.js',
-        search: 'search@http://localhost:4002/remoteEntry.js',
-        account: 'account@http://localhost:4003/remoteEntry.js'
+        app: 'app@http://localhost:4000/remoteEntry.js'
       },
-      shared: [
-        {
-          ...packageJson.dependencies,
-          react: {
-            singleton: true,
-            requiredVersion: packageJson.dependencies.react
-          },
-        },
-        './src/global'
-      ]
+      exposes: {
+        './Page': './src/bootstrap'
+      },
+      shared: packageJson.dependencies
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../public/index.html')

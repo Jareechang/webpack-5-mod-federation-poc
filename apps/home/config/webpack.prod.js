@@ -6,16 +6,13 @@ const path = require('path');
 
 const packageJson = require('../package.json');
 
-const PORT = 4000;
+const websiteHost = process.env.WEBSITE_HOST;
 
 module.exports = merge(common, {
-  mode: 'development',
+  mode: 'production',
   output: {
-    publicPath: `http://localhost:${PORT}/`
-  },
-  devServer: {
-    port: PORT,
-    historyApiFallback: true
+    publicPath: '/app/latest/',
+    filename: '[name].[contenthash].js'
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -26,10 +23,10 @@ module.exports = merge(common, {
         './SharedGlobals' : './src/global'
       },
       remotes: {
-        app: 'app@http://localhost:4000/remoteEntry.js',
-        common: 'common@http://localhost:4001/remoteEntry.js',
-        search: 'search@http://localhost:4002/remoteEntry.js',
-        account: 'account@http://localhost:4003/remoteEntry.js'
+        app: `app@${websiteHost}/app/latest/remoteEntry.js`,
+        common: `common@${websiteHost}/common/latest/remoteEntry.js`,
+        search: `search@${websiteHost}/search/latest/remoteEntry.js`,
+        account: `account@${websiteHost}/account/latest/remoteEntry.js`
       },
       shared: [
         {
@@ -38,6 +35,10 @@ module.exports = merge(common, {
             singleton: true,
             requiredVersion: packageJson.dependencies.react
           },
+          'react-dom': {
+            singleton: true,
+            requiredVersion: packageJson.dependencies['react-dom']
+          }
         },
         './src/global'
       ]

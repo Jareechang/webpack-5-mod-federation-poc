@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {mount} from 'searchResults/Page';
+import {mount} from 'search/Page';
 
 const SearchResults = () => {
   const ref = React.useRef(null);
