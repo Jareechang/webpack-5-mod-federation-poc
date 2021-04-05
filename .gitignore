@@ -3,3 +3,6 @@
 *.swp
 node_modules
 dist
+terraform.tfstate*
+.terraform*
+setup-env.sh

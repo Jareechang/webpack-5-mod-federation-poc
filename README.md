@@ -31,7 +31,15 @@ yarn run start
 
 ### 1. Create infrastructure (via terraform) 
 
-TODO
+```sh
+terraform plan
+
+terraform apply -auto-approve
+
+// Get the output vars and add to your github secrets for your actions 
+```
+
+#### Note: Remember to run `terraform destroy -auto-approve` after your finish to not incur any charges from AWS
 
 ### 2. Setup Build Environments Variables (Github actions)
 
@@ -42,6 +50,7 @@ These need to be set on the github secrets for your workflows to work. These wil
 | WEBSITE_HOST  | Website domain or cloudfront domain |
 | AWS_ACCESS_KEY_ID  | Build AWS Access key id |
 | AWS_SECRET_ACCESS_KEY  | Build AWS Access key |
+| AWS_S3_BUCKET_NAME  | S3 bucket name where the assets are synced to |
 | AWS_CF_DISTRIBUTION_ID  | Cloudfront distribution id |
 
 ## Project Summary 
