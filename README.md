@@ -6,6 +6,7 @@ This is an experimental project and it is not intended for production use.
 
 Proof of concept of isolated application stitched together with webpack 5 module federation. 
 - [Getting started](#getting-startd)  
+- [Production](#production)  
 - [Project Summary](#project-summary)  
 - [Architeture](#architecture)  
 - [Technologies](#technologies)  
@@ -26,6 +27,23 @@ yarn run start
 // Visit http://localhost:4000
 
 ```
+## Production 
+
+### 1. Create infrastructure (via terraform) 
+
+TODO
+
+### 2. Setup Build Environments Variables (Github actions)
+
+These need to be set on the github secrets for your workflows to work. These will all be available and created via terraform.
+
+|  Name        | Description    |
+| ------------- |:-------------:| 
+| WEBSITE_HOST  | Website domain or cloudfront domain |
+| AWS_ACCESS_KEY_ID  | Build AWS Access key id |
+| AWS_SECRET_ACCESS_KEY  | Build AWS Access key |
+| AWS_CF_DISTRIBUTION_ID  | Cloudfront distribution id |
+
 ## Project Summary 
 
 Kittygram. View and search for photos of cats, and manage your account.
@@ -35,7 +53,7 @@ Kittygram. View and search for photos of cats, and manage your account.
 
 Teams are divided are split up into respective functions. 
 
-1. Marketing Team    - Host application (home page and ties everything together)
+1. Marketing Team    - Host application (home page, common, and tying everything together)
 2. Accounts Team     - Account Flows (profiles, login, logout, favourites etc)
 3. Search Team       - Search Flows (Search results, display) 
 
@@ -45,6 +63,9 @@ Teams are divided are split up into respective functions.
 Separate delivery pipeline which allows for independent releases in the holistic web application.
 
 Even though the teams and projects are separate, the code base is shared via monorepo (lerna).
+
+
+#### Overview of architecture 
 
 ![Kittygram architecture](./assets/mfe-kittygram.svg "Kittygram architecture")
 

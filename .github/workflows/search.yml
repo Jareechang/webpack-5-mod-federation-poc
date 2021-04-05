@@ -1,0 +1,46 @@
+name: search-build
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+    paths:
+      - 'apps/search/**'
+
+defaults:
+  run:
+    working-directory: 'apps/search'
+
+jobs:
+  build:
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+  runs-on: ubuntu-latest
+
+  steps:
+
+    # Build  
+    - uses: actions/checkout@v2
+    - run: yarn install
+    - run: yarn build
+      env:
+        WEBSITE_HOST: ${{ secrets.WEBSITE_HOST }}
+
+    # Sync build files to S3 bucket
+    - uses: chrislennon/action-aws-cli@v1.1
+    - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/search/latest
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    # Create Cloudfront invalidation to update to latest
+    - uses: chrislennon/action-aws-cli@v1.1
+    - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_DISTRIBUTION_ID }} --paths "/search/latest/remoteEntry.js"
+
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_CF_DISTRIBUTION_ID: ${{ secrets.AWS_CF_DISTRIBUTION_ID }}

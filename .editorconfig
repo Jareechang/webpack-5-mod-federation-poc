@@ -1,4 +1,4 @@
 root = true
 
-[*.{ts,tsx,js,jsx}]
+[*.{ts,tsx,js,jsx,yml}]
 indent_size = 2
