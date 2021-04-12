@@ -1,0 +1,107 @@
+{
+    "clientIp": "234234234",
+    "headers": {
+        "cookie": [
+            {
+                "key": "Cookie",
+                "value": "source=Experiment"
+            }
+        ],
+        "x-forwarded-for": [
+            {
+                "key": "X-Forwarded-For",
+                "value": "234234234"
+            }
+        ],
+        "user-agent": [
+            {
+                "key": "User-Agent",
+                "value": "Amazon CloudFront"
+            }
+        ],
+        "via": [
+            {
+                "key": "Via",
+                "value": "1.1 616f33e1d3ef05a305b028cfa3e70fe9.cloudfront.net (CloudFront)"
+            }
+        ],
+        "pragma": [
+            {
+                "key": "Pragma",
+                "value": "no-cache"
+            }
+        ],
+        "sec-ch-ua": [
+            {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"89\", \"Chromium\";v=\"89\", \";Not A Brand\";v=\"99\""
+            }
+        ],
+        "sec-ch-ua-mobile": [
+            {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+            }
+        ],
+        "upgrade-insecure-requests": [
+            {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+            }
+        ],
+        "sec-fetch-site": [
+            {
+                "key": "Sec-Fetch-Site",
+                "value": "none"
+            }
+        ],
+        "sec-fetch-mode": [
+            {
+                "key": "Sec-Fetch-Mode",
+                "value": "navigate"
+            }
+        ],
+        "sec-fetch-user": [
+            {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+            }
+        ],
+        "sec-fetch-dest": [
+            {
+                "key": "Sec-Fetch-Dest",
+                "value": "document"
+            }
+        ],
+        "accept-encoding": [
+            {
+                "key": "Accept-Encoding",
+                "value": "gzip"
+            }
+        ],
+        "host": [
+            {
+                "key": "Host",
+                "value": "kittygrams3-dev-assets-original.s3.amazonaws.com"
+            }
+        ],
+        "cache-control": [
+            {
+                "key": "Cache-Control",
+                "value": "no-cache"
+            }
+        ]
+    },
+    "method": "GET",
+    "origin": {
+        "s3": {
+            "authMethod": "origin-access-identity",
+            "customHeaders": {},
+            "domainName": "kittygrams3-dev-assets-original.s3.amazonaws.com",
+            "path": "",
+            "region": "us-east-1"
+        }
+    },
+    "querystring": "",
+    "uri": "//app/latest/index.html"
+}

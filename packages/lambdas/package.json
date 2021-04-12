@@ -1,0 +1,13 @@
+{
+  "name": "lambdas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@common-web/jest": "^1.0.7"
+  }
+}
