@@ -3,7 +3,7 @@ const experiment = 'Experiment';
 
 // 50% traffic to new experiment page
 const experimentWeighting = 0.5;
-const experimentS3DomainName = 'kittygrams3-dev-assets-experiment.s3.amazonaws.com';
+const experimentS3DomainName = 'kittygrams-b1-dev-assets-experiment.s3.amazonaws.com';
 const experimentS3Region = 'us-east-1';
 
 /*

@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 locals {
-  project_id = "kittygrams3"
+  project_id = "kittygrams-b1"
   s3_origin_id = "kittygram-origin-dev"
 }
 
@@ -105,13 +105,13 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
 
         lambda_function_association {
           event_type   = "viewer-request"
-          lambda_arn   = "${aws_lambda_function.edge_viewer_request.arn}:8"
+          lambda_arn   = "${aws_lambda_function.edge_viewer_request.arn}:1"
           include_body = false
         }
 
         lambda_function_association {
           event_type   = "origin-request"
-          lambda_arn   = "${aws_lambda_function.edge_origin_request.arn}:8"
+          lambda_arn   = "${aws_lambda_function.edge_origin_request.arn}:1"
           include_body = false
         }
 
@@ -220,8 +220,8 @@ resource "aws_s3_bucket" "edge_functions" {
 resource "aws_s3_bucket_object" "source" {
   bucket = aws_s3_bucket.edge_functions.id
   key = "main-edge-functions"
-  source = "../packages/lambdas/edge-functions-6.zip"
-  etag = "${filemd5("../packages/lambdas/edge-functions-6.zip")}"
+  source = "../packages/lambdas/edge-functions.zip"
+  etag = "${filemd5("../packages/lambdas/edge-functions.zip")}"
 }
 
 
@@ -256,7 +256,7 @@ resource "aws_lambda_function" "edge_origin_request" {
   timeout = 30
   publish = true
 
-  source_code_hash = "${filebase64sha256("../packages/lambdas/edge-functions-6.zip")}"
+  source_code_hash = "${filebase64sha256("../packages/lambdas/edge-functions.zip")}"
 
   runtime = "nodejs12.x"
   depends_on = [
@@ -274,7 +274,7 @@ resource "aws_lambda_function" "edge_viewer_request" {
   timeout = 5 
   publish = true
 
-  source_code_hash = "${filebase64sha256("../packages/lambdas/edge-functions-6.zip")}"
+  source_code_hash = "${filebase64sha256("../packages/lambdas/edge-functions.zip")}"
 
   runtime = "nodejs12.x"
   depends_on = [
