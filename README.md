@@ -9,6 +9,7 @@ Proof of concept of isolated application stitched together with webpack 5 module
 - [Production](#production)  
 - [Project Summary](#project-summary)  
 - [Architeture](#architecture)  
+- [A/B testin](#ab-testing)  
 - [Technologies](#technologies)  
 - [Resources](#resources)  
 
@@ -72,6 +73,14 @@ Teams are divided are split up into respective functions.
 Separate delivery pipeline which allows for independent releases in the holistic web application.
 
 Even though the teams and projects are separate, the code base is shared via monorepo (lerna).
+
+
+## AB testing
+
+Included Lambda@Edge functions to randomly weight the page being served from two s3 buckets (original and experiment).
+
+- View Request - Randomly adds cookie `source=` to `Origin-Response` 
+- Origin Response - Handles the fetching data from the origin (s3 bucket), the lambda determines which page to be served based the cookie value
 
 
 #### Overview of architecture 
