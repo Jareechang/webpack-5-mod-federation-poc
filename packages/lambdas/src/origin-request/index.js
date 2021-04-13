@@ -36,8 +36,6 @@ exports.handler = (event, context, callback) => {
     ];
 
     request.uri = '/app/latest/index.html';
-
-    console.log('Directing to experiment origin: ', JSON.stringify(request));
   }
 
   callback(null, request);
